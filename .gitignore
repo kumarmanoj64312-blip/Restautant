@@ -1,0 +1,18 @@
+# Secrets (any folder)
+.env
+.env.*
+!.env.example
+
+# Dependencies and builds
+node_modules
+dist
+
+# Editors / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -1,0 +1,15 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules
+
+# Uploaded files (temporary, sent to Cloudinary)
+uploads
+
+# Logs
+logs
+*.log
+npm-debug.log*
