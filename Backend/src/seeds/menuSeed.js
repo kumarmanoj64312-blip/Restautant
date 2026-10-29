@@ -58,7 +58,7 @@ const CATEGORIES = [
     {
         name: "Desserts",
         description: "Something sweet to finish.",
-        image: img("photo-1551024601-bf3f7d3d5c4a"),
+        image: img("photo-1578985545062-69928b1d9587"),
         items: [
             { name: "Gulab Jamun", price: 99, description: "Two warm milk dumplings soaked in rose-cardamom syrup." },
             { name: "Chocolate Brownie", price: 149, description: "Fudgy brownie served warm with chocolate sauce." },
