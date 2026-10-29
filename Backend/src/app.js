@@ -37,11 +37,11 @@ const app = express();
 // CORS Configuration
 // ==========================
 
-const allowedOrigins = (
-    process.env.CLIENT_URL || "http://localhost:5173"
-)
-    .split(",")
-    .map((origin) => origin.trim())
+const allowedOrigins = [
+    ...(process.env.CLIENT_URL || "http://localhost:5173").split(","),
+    "https://restautant-xi.vercel.app",
+]
+    .map((origin) => origin.trim().replace(/\/+$/, ""))
     .filter(Boolean);
 
 app.use(

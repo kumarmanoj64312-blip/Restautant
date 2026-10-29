@@ -1,7 +1,10 @@
 import axios from "axios";
 
+// Every backend route lives under /api, so add it if the env value leaves it off
+const apiUrl = (import.meta.env.VITE_API_URL || "http://localhost:5000/api").replace(/\/+$/, "");
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
+    baseURL: apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`,
     headers: {
         "Content-Type": "application/json",
     },
