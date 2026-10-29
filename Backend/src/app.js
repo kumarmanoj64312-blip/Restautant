@@ -44,11 +44,21 @@ const allowedOrigins = [
     .map((origin) => origin.trim().replace(/\/+$/, ""))
     .filter(Boolean);
 
+// Vercel gives every branch/preview build its own subdomain
+// (e.g. restautant-git-main-manoj-kumar-s-team.vercel.app), so match the
+// project's preview domains by pattern instead of listing each one.
+const isAllowedVercelPreview = (origin) =>
+    /^https:\/\/restautant-[a-z0-9-]+\.vercel\.app$/.test(origin);
+
 app.use(
     cors({
         origin(origin, callback) {
             // Allow requests without an Origin header, such as server-to-server requests.
-            if (!origin || allowedOrigins.includes(origin)) {
+            if (
+                !origin ||
+                allowedOrigins.includes(origin) ||
+                isAllowedVercelPreview(origin)
+            ) {
                 return callback(null, true);
             }
 
